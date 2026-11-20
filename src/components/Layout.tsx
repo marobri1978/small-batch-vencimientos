@@ -21,7 +21,7 @@ export function Layout({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
 
   return (
-    <div className="mx-auto flex min-h-dvh max-w-2xl flex-col">
+    <div className="mx-auto flex min-h-dvh max-w-2xl flex-col lg:max-w-5xl">
       <header className="pizarra sticky top-0 z-30 px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] shadow-md">
         <div className="flex items-center justify-between gap-2">
           <Link to="/" className="min-w-0">
@@ -71,7 +71,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <main className="flex-1 px-4 pb-28 pt-4">{children}</main>
 
       <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-tinto/15 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur" aria-label="Secciones">
-        <ul className="mx-auto grid max-w-2xl grid-cols-4">
+        <ul className="mx-auto grid max-w-2xl grid-cols-4 lg:max-w-5xl">
           {NAV.map((n) => (
             <li key={n.to}>
               <NavLink

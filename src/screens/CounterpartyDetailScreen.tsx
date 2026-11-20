@@ -66,7 +66,7 @@ export function CounterpartyDetailScreen() {
       {active.length === 0 ? (
         <EmptyState icon="doc" title="Sin documentos activos" text={cp.status === 'activa' ? 'Esta contraparte no tiene papeles que venzan.' : 'Está dada de baja.'} action={cp.status === 'activa' ? <button type="button" className="btn-secundario" onClick={() => setSheet('doc')}>Agregar documento</button> : undefined} />
       ) : (
-        <ul className="space-y-3">
+        <ul className="grid gap-3 lg:grid-cols-2">
           {active.map((d) => <li key={d.id}><DocCard doc={d} showCounterparty={false} /></li>)}
         </ul>
       )}
@@ -77,7 +77,7 @@ export function CounterpartyDetailScreen() {
             {showRemovedDocs ? 'Ocultar' : 'Ver'} {removed.length} {removed.length === 1 ? 'dado de baja' : 'dados de baja'}
           </button>
           {showRemovedDocs && (
-            <ul className="mt-2 space-y-3">
+            <ul className="mt-2 grid gap-3 lg:grid-cols-2">
               {removed.map((d) => <li key={d.id}><DocCard doc={d} showCounterparty={false} /></li>)}
             </ul>
           )}

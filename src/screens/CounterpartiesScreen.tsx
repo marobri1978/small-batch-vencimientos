@@ -81,7 +81,7 @@ export function CounterpartiesScreen() {
       <button
         type="button"
         onClick={() => setParam('nueva', '1')}
-        className="btn-primario fixed bottom-[calc(76px+env(safe-area-inset-bottom))] right-4 z-20 h-14 rounded-full px-5 shadow-lg min-[700px]:right-[calc(50%-320px)]"
+        className="btn-primario fixed bottom-[calc(76px+env(safe-area-inset-bottom))] right-4 z-20 h-14 rounded-full px-5 shadow-lg min-[700px]:right-[calc(50%-320px)] lg:right-[calc(50%-496px)]"
       >
         <Icon name="plus" /> Nueva
       </button>

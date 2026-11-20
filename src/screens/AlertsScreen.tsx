@@ -52,7 +52,7 @@ export function AlertsScreen() {
       ) : (
         <>
           <SectionTitle>Sin ver</SectionTitle>
-          <ul className="space-y-3">
+          <ul className="grid gap-3 lg:grid-cols-2">
             {unseen.map((a) => {
               const cp = data.counterparties.find((c) => c.id === a.doc.counterpartyId);
               return (
@@ -93,7 +93,7 @@ export function AlertsScreen() {
       {seen.length > 0 && (
         <>
           <SectionTitle>Ya vistos</SectionTitle>
-          <ul className="space-y-3">
+          <ul className="grid gap-3 lg:grid-cols-2">
             {seen.map((a) => (
               <li key={a.doc.id} className="opacity-90">
                 <DocCard

@@ -89,7 +89,7 @@ export function DocumentsScreen() {
         />
       </div>
 
-      <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1" role="tablist" aria-label="Filtrar por estado">
+      <div className="mb-4 grid grid-cols-2 gap-2 min-[520px]:grid-cols-3 lg:grid-cols-6" role="tablist" aria-label="Filtrar por estado">
         {FILTERS.map((f) => {
           const active = f.key === filter;
           return (
@@ -99,7 +99,7 @@ export function DocumentsScreen() {
               role="tab"
               aria-selected={active}
               onClick={() => setFilter(f.key)}
-              className={`chip ${active ? 'border-tinto bg-tinto text-papel' : 'border-tinto/20 bg-white text-tinto'}`}
+              className={`chip w-full justify-center ${active ? 'border-tinto bg-tinto text-papel' : 'border-tinto/20 bg-white text-tinto'}`}
             >
               {f.label}
               <span className={`rounded-full px-1.5 text-[12px] ${active ? 'bg-white/20' : 'bg-papel'}`}>{counts[f.key]}</span>
@@ -120,7 +120,7 @@ export function DocumentsScreen() {
           />
         )
       ) : (
-        <ul className="space-y-3">
+        <ul className="grid gap-3 lg:grid-cols-2">
           {list.map((d) => (
             <li key={d.id}><DocCard doc={d} /></li>
           ))}
@@ -130,7 +130,7 @@ export function DocumentsScreen() {
       <button
         type="button"
         onClick={() => setCreating(true)}
-        className="btn-primario fixed bottom-[calc(76px+env(safe-area-inset-bottom))] right-4 z-20 h-14 rounded-full px-5 shadow-lg min-[700px]:right-[calc(50%-320px)]"
+        className="btn-primario fixed bottom-[calc(76px+env(safe-area-inset-bottom))] right-4 z-20 h-14 rounded-full px-5 shadow-lg min-[700px]:right-[calc(50%-320px)] lg:right-[calc(50%-496px)]"
       >
         <Icon name="plus" /> Nuevo
       </button>

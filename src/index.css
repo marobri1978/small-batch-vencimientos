@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-papel font-sans text-tinto antialiased;
+    /* Papel crudo con fibra apenas visible */
+    background-image:
+      radial-gradient(rgba(74, 28, 44, 0.035) 1px, transparent 1px),
+      radial-gradient(rgba(74, 28, 44, 0.025) 1px, transparent 1px);
+    background-size: 7px 7px, 11px 11px;
+    background-position: 0 0, 3px 5px;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 3px solid #D9B44A;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Pizarra: tinto oscuro con polvo de tiza */
+  .pizarra {
+    background-color: #4A1C2C;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(245, 239, 228, 0.09), transparent 55%),
+      radial-gradient(ellipse at 90% 100%, rgba(245, 239, 228, 0.06), transparent 50%),
+      repeating-linear-gradient(-12deg, rgba(245, 239, 228, 0.018) 0 2px, transparent 2px 6px);
+    color: #F5EFE4;
+  }
+  .tiza {
+    text-shadow: 0 0 1px rgba(245, 239, 228, 0.55), 0 0 6px rgba(245, 239, 228, 0.12);
+    letter-spacing: 0.01em;
+  }
+  .subrayado-tiza {
+    background-image: linear-gradient(transparent 82%, rgba(217, 180, 74, 0.75) 82%, rgba(217, 180, 74, 0.75) 92%, transparent 92%);
+  }
+  /* Etiqueta de papel */
+  .etiqueta {
+    @apply rounded-xl border border-tinto/15 bg-white shadow-[0_1px_0_rgba(74,28,44,0.08),0_6px_18px_-12px_rgba(74,28,44,0.45)];
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-4 text-[15px] font-semibold transition active:scale-[0.98] disabled:opacity-50;
+  }
+  .btn-primario {
+    @apply btn bg-tinto text-papel hover:bg-tinto-600;
+  }
+  .btn-secundario {
+    @apply btn border border-tinto/25 bg-white text-tinto hover:bg-papel;
+  }
+  .btn-peligro {
+    @apply btn border border-lacre/40 bg-white text-lacre hover:bg-lacre/5;
+  }
+  .btn-chico {
+    @apply min-h-[40px] px-3 text-sm;
+  }
+  .campo {
+    @apply mt-1 block w-full min-h-[44px] rounded-lg border border-tinto/25 bg-white px-3 text-base text-tinto placeholder:text-tinto/40 focus:border-tinto focus:outline-none focus:ring-2 focus:ring-dorado/60;
+  }
+  .campo-error {
+    @apply border-lacre ring-1 ring-lacre/40;
+  }
+  .rotulo {
+    @apply block text-sm font-semibold text-tinto;
+  }
+  .chip {
+    @apply inline-flex min-h-[36px] shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm font-medium;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes subir {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animar-subir {
+  animation: subir 0.22s ease-out;
+}
